@@ -1,0 +1,19 @@
+<section class="product__container">
+  <div class="product-image__container">
+    <img [src]="product?.imagem" />
+  </div>
+  <div class="product-description__container">
+    <h2 class="product__name">{{ product?.descricao }}</h2>
+    <h3 class="product__price">{{ product?.preco | currency }}</h3>
+    <p>On stock</p>
+    <label>
+      Quantity:
+      <input type="number" [(ngModel)]="quantity" min="1" />
+      units
+    </label>
+    <p class="product__avaiability">
+      {{ product?.stockQuantity }} units on stock
+    </p>
+    <button (click)="addToCart()">Add to cart</button>
+  </div>
+</section>

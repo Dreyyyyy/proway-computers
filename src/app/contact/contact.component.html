@@ -1,0 +1,175 @@
+<h2 class="contact__title">Contact us</h2>
+<section class="contact__container">
+  <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="sendForm()">
+    <input
+      type="text"
+      placeholder="Type your name"
+      formControlName="name"
+      [class.valid]="contactForm.controls['name'].valid"
+      [class.invalid]="
+        contactForm.controls['name'].invalid &&
+        (contactForm.controls['name'].touched ||
+          contactForm.controls['name'].dirty)
+      "
+    />
+    <div
+      *ngIf="
+        contactForm.controls['name'].invalid &&
+        (contactForm.controls['name'].touched ||
+          contactForm.controls['name'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['name'].hasError('minlength')"
+      >
+        This field needs at least 4 characters.
+      </small>
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['name'].hasError('required')"
+      >
+        This field needs to be filled.
+      </small>
+    </div>
+    <input
+      type="text"
+      placeholder="Type your subject"
+      formControlName="subject"
+      [class.valid]="contactForm.controls['subject'].valid"
+      [class.invalid]="
+        contactForm.controls['subject'].invalid &&
+        (contactForm.controls['subject'].touched ||
+          contactForm.controls['subject'].dirty)
+      "
+    />
+    <div
+      *ngIf="
+        contactForm.controls['subject'].invalid &&
+        (contactForm.controls['subject'].touched ||
+          contactForm.controls['subject'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['subject'].hasError('minlength')"
+      >
+        This field needs at least 10 characters.
+      </small>
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['subject'].hasError('required')"
+      >
+        This field needs to be filled.
+      </small>
+    </div>
+    <input
+      type="tel"
+      placeholder="(XX) X XXXX-XXXX"
+      mask="(00) 0 0000-0000"
+      formControlName="phone"
+      [class.valid]="contactForm.controls['phone'].valid"
+      [class.invalid]="
+        contactForm.controls['phone'].invalid &&
+        (contactForm.controls['phone'].touched ||
+          contactForm.controls['phone'].dirty)
+      "
+    />
+    <div
+      *ngIf="
+        contactForm.controls['phone'].invalid &&
+        (contactForm.controls['phone'].touched ||
+          contactForm.controls['phone'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['phone'].hasError('minlength')"
+      >
+        Invalid phone number.
+      </small>
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['phone'].hasError('required')"
+      >
+        This field needs to be filled.
+      </small>
+    </div>
+    <input
+      type="email"
+      placeholder="Type your e-mail"
+      formControlName="email"
+      [class.valid]="contactForm.controls['email'].valid"
+      [class.invalid]="
+        contactForm.controls['email'].invalid &&
+        (contactForm.controls['email'].touched ||
+          contactForm.controls['email'].dirty)
+      "
+    />
+    <div
+      *ngIf="
+        contactForm.controls['email'].invalid &&
+        (contactForm.controls['email'].touched ||
+          contactForm.controls['email'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['email'].hasError('email')"
+      >
+        This field needs to be a valid email.
+      </small>
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['email'].hasError('required')"
+      >
+        This field needs to be filled.
+      </small>
+    </div>
+    <textarea
+      maxlength="300"
+      placeholder="Type your message..."
+      rows="4"
+      formControlName="message"
+      [class.valid]="contactForm.controls['message'].valid"
+      [class.invalid]="
+        contactForm.controls['message'].invalid &&
+        (contactForm.controls['message'].touched ||
+          contactForm.controls['message'].dirty)
+      "
+    ></textarea>
+    <div
+      *ngIf="
+        contactForm.controls['message'].invalid &&
+        (contactForm.controls['message'].touched ||
+          contactForm.controls['message'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['message'].hasError('minlength')"
+      >
+        This field needs at least 20 characters.
+      </small>
+      <small
+        class="error-message"
+        *ngIf="contactForm.controls['message'].hasError('required')"
+      >
+        This field needs to be filled.
+      </small>
+    </div>
+    <button [disabled]="contactForm.invalid" type="submit">Send</button>
+  </form>
+  <address>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.5750907897846!2d-49.0724960849549!3d-26.91697718312573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df18c3b4a71d65%3A0xa5ec9dd8406a6a7!2sProWay!5e0!3m2!1spt-BR!2sbr!4v1678669800684!5m2!1spt-BR!2sbr"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <p>R. 7 de Setembro, 1600 - 14º andar - Centro, Blumenau - SC, 89010-204</p>
+  </address>
+</section>
